@@ -1,35 +1,56 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import Header from './components/Header';
+import Section from './components/Section';
+import Footer from './components/Footer';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+      <Header />
+      <main>
+        <Section id="causes" title="Causas Principales">
+          <ul>
+            <li>Quema de combustibles fósiles (industria, transporte).</li>
+            <li>Deforestación y cambios en el uso del suelo.</li>
+            <li>Producción agrícola y ganadera.</li>
+          </ul>
+        </Section>
 
-export default App
+        <Section id="ghg-chart" title="Emisiones Globales de Gases de Efecto Invernadero">
+          <canvas id="emissionsChart"></canvas>
+        </Section>
+
+        <Section id="effects" title="Efectos del Cambio Climático">
+          <div className="grid">
+            <div className="card">
+              <h3>Aumento de Temperaturas</h3>
+              <p>
+                El incremento de las emisiones ha elevado la temperatura global promedio en 1.1°C desde la era preindustrial.
+              </p>
+            </div>
+            <div className="card">
+              <h3>Derretimiento de Glaciares</h3>
+              <p>La pérdida de hielo en el Ártico y en glaciares aumenta el nivel del mar.</p>
+            </div>
+            <div className="card">
+              <h3>Eventos Climáticos Extremos</h3>
+              <p>Huracanes más fuertes, sequías prolongadas y olas de calor extremas.</p>
+            </div>
+          </div>
+        </Section>
+
+        <Section id="solutions" title="Soluciones">
+          <p>Actuar ahora puede frenar el impacto:</p>
+          <ul>
+            <li>Transición a energías renovables.</li>
+            <li>Reforestación masiva.</li>
+            <li>Reducción del consumo de carne y productos animales.</li>
+          </ul>
+        </Section>
+      </main>
+      <Footer />
+    </>
+  );
+};
+
+export default App;
